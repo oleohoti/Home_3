@@ -6,5 +6,5 @@ int first = num/10000;
 int second = num%10000/1000;
 int fourth = num%100/10;
 int five = num%10;
-if ( first == five){Console.WriteLine($"число {num} является палиндромом");}
-else {Console.WriteLine($"число {num} является палиндромом");}
+if ( first == five && second == fourth) {Console.WriteLine($"число {num} является палиндромом");}
+else {Console.WriteLine($"число {num} не является палиндромом");}
