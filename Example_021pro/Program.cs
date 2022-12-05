@@ -1,25 +1,54 @@
 ﻿Console.Write("Введите колличество пространств, в которых находятся точки: ");
 int pros = Convert.ToInt32(Console.ReadLine());
 
-int pros1 = pros;
-int pros2 = pros;
-
-double []array (int pros)
+double []array1 (int pros)
 {
-    double [] A = new double [pros];
+    double [] mass = new double [pros];
     for (int i=0; i<=pros-1;i++) // цикл заполнения массивов значениями
     {
     Console.Write($"Введите координаты {i+1}-ого пространства точки А ");
-    A[i] = Convert.ToDouble(Console.ReadLine());
+    mass[i] = Convert.ToDouble(Console.ReadLine());
     }
-    return A;
+    return mass;
 }
-double [] massiv=array(pros);
+double [] A=array1(pros);
 
-for (int i = 0; i < massiv.Length; i++)
+double []array2 (int pros)
 {
-    Console.WriteLine(massiv[i]);
+    double [] mass = new double [pros];
+    for (int i=0; i<=pros-1;i++) // цикл заполнения массивов значениями
+    {
+    Console.Write($"Введите координаты {i+1}-ого пространства точки B ");
+    mass[i] = Convert.ToDouble(Console.ReadLine());
+    }
+    return mass;
 }
+double [] B=array2(pros);
+
+double []raz (double[]A,double[]B, int pros)
+{
+    double [] mas = new double [pros];
+    for (int i=0; i<=pros-1;i++) // цикл заполнения массивов значениями
+    {
+     mas[i]=Math.Pow(B[i]-A[i],2);
+    }
+    return mas;
+}
+double []raznica = raz(A,B,pros);
+
+
+
+double distance(double[]raznica)
+{
+    double sum = 0;
+    for (int i=0;i<raznica.Length;i++)
+    {
+        sum=sum+raznica[i];
+    }
+    double dis = Math.Sqrt(sum);
+    return dis;
+}
+
     // double [] raz = new double [pros]; // размерность массива который будет заполняться разницой в квадрате для дальнейшего вывода из под корня
     // double sum = 0; 
 
@@ -32,4 +61,4 @@ for (int i = 0; i < massiv.Length; i++)
     // }
     
     // double distance = Math.Sqrt(sum); // находим дистанцию финальной формулой
-    // Console.WriteLine($"Расстояние от точки А до точки B в {i}-ом пространсве равно: {distance}");
+Console.WriteLine($"Расстояние от точки А до точки B в {pros}-х мерном пространсве равно: {distance(raznica)}");//A (3,6,8); B (2,1,-7), -> 15.84
